@@ -21,11 +21,11 @@ ws.title = "Thông tin tuyển dụng"
 ws.append(["Link", "Thông tin công ty", "Email", "Số điện thoại"])
 
 # === Bắt đầu từ trang 22, duyệt nhiều trang ===
-start_page = 101
-end_page = 150  # Thay số trang bạn muốn quét
+start_page = 81
+end_page = 120  # Thay số trang bạn muốn quét
 
 for page in range(start_page, end_page + 1):
-    url = f"https://vieclamhaiduong.vn/viec-lam-trang-{page}.html?per-page=15"
+    url = f"https://vieclambacninhso1.vn/viec-lam-trang-{page}.html?per-page=15"
     print(f"\n📄 Đang xử lý: {url}")
     driver.get(url)
     time.sleep(3)
@@ -75,7 +75,7 @@ for page in range(start_page, end_page + 1):
             link1 = link
 
 # === Lưu Excel ===
-excel_filename = f"ket_qua_tuyen_dung'{end_page}'.xlsx"
+excel_filename = f"viec_lam_bac_ninh_so_1'{end_page}'.xlsx"
 wb.save(excel_filename)
 print(f"\n✅ Đã lưu dữ liệu vào '{excel_filename}'")
 
