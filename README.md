@@ -2,3 +2,4 @@
 - cài ide
 - cài selenium
 - run code
+- chromedriver
