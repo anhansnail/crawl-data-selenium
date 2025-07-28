@@ -8,8 +8,10 @@ import pandas as pd
 import time
 
 # --- Cấu hình ---
-keyword = "spa Da Nang"
-max_results = 10
+# keyword = "spa Da Nang"
+# keyword = "ha noi hotel"
+keyword = "khách sạn ở phố cổ"
+max_results = 600
 results = []
 
 # --- Cài đặt Chrome ---
@@ -29,7 +31,7 @@ time.sleep(5)
 # --- Cuộn để tải thêm kết quả ---
 try:
     scrollable_div = wait.until(EC.presence_of_element_located((By.XPATH, '//div[@role="feed"]')))
-    for _ in range(10):
+    for _ in range(60):
         driver.execute_script("arguments[0].scrollTop = arguments[0].scrollHeight", scrollable_div)
         time.sleep(2)
 except:
@@ -82,8 +84,8 @@ for index, item in enumerate(items):
 
 # --- Lưu ra Excel ---
 df = pd.DataFrame(results)
-df.to_excel("ket_qua_google_maps.xlsx", index=False)  # Không dùng encoding hay engine
-print("🎉 Đã lưu file ket_qua_google_maps.xlsx")
+df.to_excel("hanoi_hotel_ket_qua_google_maps.xlsx", index=False)  # Không dùng encoding hay engine
+print("🎉 Đã lưu file hanoi_hotel_ket_qua_google_maps.xlsx")
 
 # --- Thoát trình duyệt ---
 driver.quit()
